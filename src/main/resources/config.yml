@@ -1,0 +1,5 @@
+#Every Level will only require X Amount of XP. If turned off the xp will increase per Level.
+fixed-xp-per-level: false
+
+#If "fixed-xp-per-level" is true, this is the fixed amount, if it is false this will be the xp required for the first level.
+xp:

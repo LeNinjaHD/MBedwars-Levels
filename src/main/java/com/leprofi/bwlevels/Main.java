@@ -13,7 +13,7 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         if (Bukkit.getPluginManager().getPlugin("MBedwars") == null &&
          Bukkit.getPluginManager().getPlugin("MBedwars").getDescription().getVersion().startsWith("5.0")) {
-            Logger.error("MBedwars was not found! Disabling Plugin!");
+            Logger.error("MBedwars was not found or it is outdated! Disabling Plugin!");
             getServer().getPluginManager().disablePlugin(this);
         }
         Logger.info("========== [ MBedWars-Levels ] ==========");
