@@ -1,0 +1,4 @@
+name: MBedWars-Levels
+version: 1.0
+api-version: 1.16
+main: com.leprofi.bwlevels.Main
