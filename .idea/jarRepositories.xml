@@ -7,6 +7,11 @@
       <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="bedwars-repo" />
+      <option name="name" value="bedwars-repo" />
+      <option name="url" value="https://repo.marcely.de/repository/maven-public/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="spigot-repo" />
       <option name="name" value="spigot-repo" />
       <option name="url" value="https://hub.spigotmc.org/nexus/content/repositories/snapshots/" />
@@ -20,6 +25,11 @@
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="marcely-repo" />
+      <option name="name" value="marcely-repo" />
+      <option name="url" value="https://repo.marcely.de/repository/maven-public/" />
     </remote-repository>
   </component>
 </project>

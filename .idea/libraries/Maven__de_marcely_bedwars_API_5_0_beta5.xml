@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: de.marcely.bedwars:API:5.0-beta5">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/de/marcely/bedwars/API/5.0-beta5/API-5.0-beta5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/de/marcely/bedwars/API/5.0-beta5/API-5.0-beta5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/de/marcely/bedwars/API/5.0-beta5/API-5.0-beta5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
