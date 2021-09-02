@@ -1,5 +1,7 @@
 package com.leprofi.bwlevels;
 
+import com.leprofi.bwlevels.utils.Logger;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /*
@@ -8,6 +10,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
+        if (Bukkit.getPluginManager().getPlugin("MBedwars") == null) {
+            Logger.error("MBedwars was not Found! Disabling Plugin!");
+            getServer().getPluginManager().disablePlugin(this);
+        }
 
     }
 
