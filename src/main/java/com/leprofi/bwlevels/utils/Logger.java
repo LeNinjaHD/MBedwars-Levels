@@ -8,8 +8,8 @@ import java.time.format.DateTimeFormatter;
  *  Class Created by LeNinjaHD at 02.09.2021
  */
 public class Logger {
-    private static String log_format = "[%date%] %color%%type%: %message%" + Color.RESET;
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
+    private static final String log_format = "[%date%] %color%%type%: %message%" + Color.RESET;
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy");
 
     public static void error(String message) {
         String output = log_format;

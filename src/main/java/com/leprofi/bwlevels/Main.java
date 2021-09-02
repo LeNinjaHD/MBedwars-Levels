@@ -10,8 +10,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
-        if (Bukkit.getPluginManager().getPlugin("MBedwars") == null) {
-            Logger.error("MBedwars was not Found! Disabling Plugin!");
+        if (Bukkit.getPluginManager().getPlugin("MBedwars") == null &&
+         Bukkit.getPluginManager().getPlugin("MBedwars").getDescription().getVersion().startsWith("5.0")) {
+            Logger.error("MBedwars was not found! Disabling Plugin!");
             getServer().getPluginManager().disablePlugin(this);
         }
 
