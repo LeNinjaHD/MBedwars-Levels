@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MBedWars-Levels">
+    <output-path>$PROJECT_DIR$/bin</output-path>
+    <root id="archive" name="MBedWars-Levels.jar">
+      <element id="module-output" name="MBedwars-Levels" />
+    </root>
+  </artifact>
+</component>
