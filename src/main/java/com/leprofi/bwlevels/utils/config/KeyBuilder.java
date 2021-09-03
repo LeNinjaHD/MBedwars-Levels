@@ -1,4 +1,4 @@
-package com.leprofi.bwlevels.utils;
+package com.leprofi.bwlevels.utils.config;
 
 import org.bukkit.configuration.file.FileConfiguration;
 

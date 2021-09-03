@@ -1,4 +1,4 @@
-package com.leprofi.bwlevels.utils;
+package com.leprofi.bwlevels.utils.config;
 
 import com.google.common.base.Preconditions;
 import org.bukkit.configuration.ConfigurationSection;

@@ -1,8 +1,8 @@
 package com.leprofi.bwlevels;
 
 import com.leprofi.bwlevels.listener.bw.*;
-import com.leprofi.bwlevels.utils.ConfigUpdater;
-import com.leprofi.bwlevels.utils.Logger;
+import com.leprofi.bwlevels.utils.config.ConfigUpdater;
+import com.leprofi.bwlevels.utils.logger.Logger;
 import com.leprofi.bwlevels.utils.Metrics;
 import com.leprofi.bwlevels.utils.RegisterMBedwarsStat;
 import de.marcely.bedwars.api.BedwarsAPI;

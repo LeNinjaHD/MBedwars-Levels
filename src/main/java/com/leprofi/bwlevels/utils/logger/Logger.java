@@ -1,8 +1,8 @@
-package com.leprofi.bwlevels.utils;
+package com.leprofi.bwlevels.utils.logger;
+
+import com.leprofi.bwlevels.utils.logger.Color;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 /*
  *  Class Created by LeNinjaHD at 02.09.2021

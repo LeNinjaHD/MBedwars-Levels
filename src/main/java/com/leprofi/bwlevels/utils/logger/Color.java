@@ -1,4 +1,4 @@
-package com.leprofi.bwlevels.utils;
+package com.leprofi.bwlevels.utils.logger;
 
 /*
  *  Class Created by LeNinjaHD at 02.09.2021
