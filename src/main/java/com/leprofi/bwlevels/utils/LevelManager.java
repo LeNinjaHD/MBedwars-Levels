@@ -6,7 +6,6 @@ import de.marcely.bedwars.api.player.PlayerStats;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import java.util.Optional;
 import java.util.UUID;
 
 /*
@@ -14,19 +13,20 @@ import java.util.UUID;
  */
 public class LevelManager {
     private Player player;
-    private final Optional<PlayerStats> playerStats;
+    private final PlayerStats playerStats;
     private final PlayerStatSet expSet = new RegisterMBedwarsStat();
 
     public LevelManager(String uuid) {
         player = Bukkit.getPlayer(uuid);
-        playerStats = PlayerDataAPI.get().getStatsNow(UUID.fromString(uuid));
+        playerStats = PlayerDataAPI.get().getStatsNow(UUID.fromString(uuid)).get();
     }
 
     public void addXP(Integer xp) {
 
+        //Where do I run this?
         PlayerDataAPI.get().registerStatSet(expSet);
 
-        playerStats.ifPresent(stats -> expSet.setValue(stats, xp));
+        expSet.setValue(playerStats, xp);
     }
 
 
