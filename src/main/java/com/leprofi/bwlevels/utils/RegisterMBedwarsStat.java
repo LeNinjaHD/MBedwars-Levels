@@ -14,6 +14,10 @@ import javax.annotation.Nullable;
 
 public class RegisterMBedwarsStat implements PlayerStatSet {
 
+    public static void registerXPSet(){
+        LevelManager.xpSet = new RegisterMBedwarsStat();
+    }
+
     @Override
     public String getId(){
         return "leveladdon:experience";
