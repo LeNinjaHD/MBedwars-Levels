@@ -1,11 +1,7 @@
 name: MBedWars-Levels
 version: 1.0
 api-version: 1.13
-main: com.leprofi.bwlevels.Main
+main: com.leprofi.bwlevels.MBedwarsLevelPlugin
 
 depend: [MBedwars]
 
-commands:
-  level:
-    aliases: [levels, lvl]
-    description: Manage Levels

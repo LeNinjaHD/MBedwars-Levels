@@ -14,19 +14,21 @@ import java.util.Collections;
 /*
  *  Class Created by LeNinjaHD at 02.09.2021
  */
-public class Main extends JavaPlugin {
+public class MBedwarsLevelPlugin extends JavaPlugin {
 
-    private static Main instance;
+    private static MBedwarsLevelPlugin instance;
 
     @Override
     public void onEnable() {
 
         instance = this;
 
-        if (Bukkit.getPluginManager().getPlugin("MBedwars") == null &&
-         Bukkit.getPluginManager().getPlugin("MBedwars").getDescription().getVersion().startsWith("5.0")) {
-            Logger.error("MBedwars was not found or it is outdated! Disabling Plugin!");
-            getServer().getPluginManager().disablePlugin(this);
+        try{
+            Class.forName("de.marcely.bedwars.api.GameAPI");
+        }catch(ClassNotFoundException e){
+            Logger.error("MBedwars was not found! Disabling Plugin..");
+            Bukkit.getPluginManager().disablePlugin(this);
+            return;
         }
 
         loadConfig();
@@ -47,7 +49,7 @@ public class Main extends JavaPlugin {
 
     }
 
-    public static Main getInstance(){
+    public static MBedwarsLevelPlugin getInstance(){
         return instance;
     }
 

@@ -1,6 +1,6 @@
 package com.leprofi.bwlevels.utils;
 
-import com.leprofi.bwlevels.Main;
+import com.leprofi.bwlevels.MBedwarsLevelPlugin;
 import de.marcely.bedwars.api.message.Message;
 import de.marcely.bedwars.api.player.PlayerStatSet;
 import de.marcely.bedwars.api.player.PlayerStats;
@@ -44,7 +44,7 @@ public class RegisterMBedwarsStat implements PlayerStatSet {
         stats.set("leveladdon:exp", num);
     }
 
-    public static Main plugin(){
-        return Main.getInstance();
+    public static MBedwarsLevelPlugin plugin(){
+        return MBedwarsLevelPlugin.getInstance();
     }
 }
