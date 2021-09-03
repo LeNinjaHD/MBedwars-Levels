@@ -1,6 +1,7 @@
 package com.leprofi.bwlevels.listener.bw;
 
 import de.marcely.bedwars.api.event.arena.ArenaBedBreakEvent;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -10,6 +11,9 @@ import org.bukkit.event.Listener;
 public class ArenaBedBreakListener implements Listener {
     @EventHandler
     public void onArenaBedBreak(ArenaBedBreakEvent event) {
-        //TODO
+        if(event.isPlayerCaused()){
+            Player player = event.getPlayer();
+            //TODO
+        }
     }
 }

@@ -10,6 +10,6 @@ import org.bukkit.event.Listener;
 public class TeamEliminateListener implements Listener {
     @EventHandler
     public void onTeamEliminate(TeamEliminateEvent event) {
-        //TODO
+        // I dont think we need this event
     }
 }

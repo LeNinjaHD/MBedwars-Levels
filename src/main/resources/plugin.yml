@@ -1,6 +1,6 @@
 name: MBedWars-Levels
 version: 1.0
-api-version: 1.16
+api-version: 1.13
 main: com.leprofi.bwlevels.Main
 
 depend: [MBedwars]
