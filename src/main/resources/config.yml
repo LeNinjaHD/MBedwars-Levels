@@ -2,4 +2,20 @@
 fixed-xp-per-level: false
 
 #If "fixed-xp-per-level" is true, this is the fixed amount, if it is false this will be the xp required for the first level.
-xp:
+xp: 5000
+
+#The rate for increasing xp every level (in percent)
+#Example: if the rate is at 1% & level 1 requires 5000xp Level 2 will require 5050, 5100 and so on
+xp-increase-rate:
+
+#This section contains the values for how much xp should be given when compleating a goal
+
+round-end-lose-xp: 500
+round-end-win-xp: 1000
+
+final-kill-xp: 350
+kill-xp: 100
+
+break-bed-xp: 175
+
+achievment-earned-xp: 1250
