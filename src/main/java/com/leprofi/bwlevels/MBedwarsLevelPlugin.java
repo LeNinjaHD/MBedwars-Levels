@@ -1,9 +1,9 @@
 package com.leprofi.bwlevels;
 
+import com.leprofi.bwlevels.utils.ConfigUpdater;
 import com.leprofi.bwlevels.utils.Logger;
 import com.leprofi.bwlevels.utils.Metrics;
 import com.leprofi.bwlevels.utils.RegisterMBedwarsStat;
-import com.tchristofferson.configupdater.ConfigUpdater;
 import de.marcely.bedwars.api.BedwarsAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginDescriptionFile;
