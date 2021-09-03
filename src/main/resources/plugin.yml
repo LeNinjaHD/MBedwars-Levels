@@ -4,3 +4,8 @@ api-version: 1.13
 main: com.leprofi.bwlevels.Main
 
 depend: [MBedwars]
+
+commands:
+  level:
+    aliases: [levels, lvl]
+    description: Manage Levels

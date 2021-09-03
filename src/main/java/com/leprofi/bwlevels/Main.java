@@ -1,6 +1,7 @@
 package com.leprofi.bwlevels;
 
 import com.leprofi.bwlevels.utils.Logger;
+import com.leprofi.bwlevels.utils.Metrics;
 import com.tchristofferson.configupdater.ConfigUpdater;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginDescriptionFile;
@@ -36,6 +37,9 @@ public class Main extends JavaPlugin {
         Logger.info("Created By: " + pdf.getAuthors());
         Logger.info("Version: " + pdf.getVersion());
         Logger.info("========== [ MBedWars-Levels ] ==========");
+
+        int pluginId = 12681;
+        Metrics metrics = new Metrics(this, pluginId);
     }
 
     @Override
