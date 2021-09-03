@@ -10,4 +10,5 @@ public class LevelAddon extends BedwarsAddon {
     public LevelAddon(Plugin plugin) {
         super(plugin);
     }
+
 }

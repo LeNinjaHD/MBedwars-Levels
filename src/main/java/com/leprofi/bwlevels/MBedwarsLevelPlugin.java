@@ -1,5 +1,6 @@
 package com.leprofi.bwlevels;
 
+import com.leprofi.bwlevels.listener.bw.*;
 import com.leprofi.bwlevels.utils.ConfigUpdater;
 import com.leprofi.bwlevels.utils.Logger;
 import com.leprofi.bwlevels.utils.Metrics;
@@ -7,6 +8,7 @@ import com.leprofi.bwlevels.utils.RegisterMBedwarsStat;
 import de.marcely.bedwars.api.BedwarsAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginDescriptionFile;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -50,6 +52,13 @@ public class MBedwarsLevelPlugin extends JavaPlugin {
             //Load papi Placeholders after Registered
             RegisterMBedwarsStat.registerXPSet();
         });
+
+        PluginManager pl = Bukkit.getPluginManager();
+        pl.registerEvents(new ArenaBedBreakListener(), this);
+        pl.registerEvents(new PlayerEarnAchievementListener(), this);
+        pl.registerEvents(new PlayerKillPlayerListener(), this);
+        pl.registerEvents(new RoundEndListener(), this);
+        pl.registerEvents(new TeamEliminateListener(), this);
     }
 
     @Override
