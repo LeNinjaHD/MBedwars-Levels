@@ -2,7 +2,9 @@ package com.leprofi.bwlevels;
 
 import com.leprofi.bwlevels.utils.Logger;
 import com.leprofi.bwlevels.utils.Metrics;
+import com.leprofi.bwlevels.utils.RegisterMBedwarsStat;
 import com.tchristofferson.configupdater.ConfigUpdater;
+import de.marcely.bedwars.api.BedwarsAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -24,9 +26,10 @@ public class MBedwarsLevelPlugin extends JavaPlugin {
         instance = this;
 
         try{
+            //Works for 5.0+ because class doesn't exist in 4.0
             Class.forName("de.marcely.bedwars.api.GameAPI");
         }catch(ClassNotFoundException e){
-            Logger.error("MBedwars was not found! Disabling Plugin..");
+            Logger.error("MBedwars was not found, or is outdated! Disabling Plugin..");
             Bukkit.getPluginManager().disablePlugin(this);
             return;
         }
@@ -42,6 +45,11 @@ public class MBedwarsLevelPlugin extends JavaPlugin {
 
         int pluginId = 12681;
         Metrics metrics = new Metrics(this, pluginId);
+
+        BedwarsAPI.onReady(() -> {
+            //Load papi Placeholders after Registered
+            RegisterMBedwarsStat.registerXPSet();
+        });
     }
 
     @Override
