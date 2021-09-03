@@ -1,6 +1,7 @@
 package com.leprofi.bwlevels.listener.bw;
 
 import com.leprofi.bwlevels.MBedwarsLevelPlugin;
+import com.leprofi.bwlevels.utils.ArenaExperienceManager;
 import com.leprofi.bwlevels.utils.LevelManager;
 import de.marcely.bedwars.api.event.arena.RoundEndEvent;
 import org.bukkit.entity.Player;
@@ -23,10 +24,13 @@ public class RoundEndListener implements Listener {
         Collection<Player> winners = event.getWinners();
         event.getArena().getPlayers().forEach(player -> {
             if(winners.contains(player)){
-                new LevelManager(player.getUniqueId()).addXP(winXP);
+                ArenaExperienceManager.giveArenaXP(player, winXP);
             }else{
-                new LevelManager(player.getUniqueId()).addXP(loseXP);
+                ArenaExperienceManager.giveArenaXP(player, loseXP);
             }
         });
+
+        ArenaExperienceManager.saveArenaXP(event.getArena());
+        ArenaExperienceManager.clearMaps(event.getArena());
     }
 }

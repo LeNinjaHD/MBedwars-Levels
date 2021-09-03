@@ -12,14 +12,14 @@ import java.util.UUID;
  */
 public class LevelManager {
 
-    private final PlayerStats playerStats;
+    private PlayerStats playerStats;
     public static PlayerStatSet xpSet = RegisterMBedwarsStat.getXPSet;
 
     private final int gradualIncreaseAmount = plugin().getConfig().getInt("xp-increase-rate");
     private final int baseXPAmount = plugin().getConfig().getInt("base-xp");
 
     public LevelManager(UUID uuid) {
-        playerStats = PlayerDataAPI.get().getStatsNow(uuid).get();
+        PlayerDataAPI.get().getStats(uuid, stats -> playerStats = stats);
     }
 
     public void addXP(Integer xp) {
@@ -69,7 +69,7 @@ public class LevelManager {
         int nextLevel = currentLevel + 1;
         if(gradualIncreaseAmount <= 0){
             //one level higher xp - current xp
-            return (nextLevel * baseXPAmount) - getXP();
+            return (nextLevel * baseXPAmount) - currentXP;
         }else {
             //one level higher xp - current xp
             return ((baseXPAmount * nextLevel) + (gradualIncreaseAmount * nextLevel) - gradualIncreaseAmount) - currentXP;

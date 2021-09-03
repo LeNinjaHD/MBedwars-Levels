@@ -1,9 +1,9 @@
 package com.leprofi.bwlevels.listener.bw;
 
 import com.leprofi.bwlevels.MBedwarsLevelPlugin;
+import com.leprofi.bwlevels.utils.ArenaExperienceManager;
 import com.leprofi.bwlevels.utils.LevelManager;
 import de.marcely.bedwars.api.event.arena.ArenaBedBreakEvent;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,7 +20,7 @@ public class ArenaBedBreakListener implements Listener {
     public void onArenaBedBreak(ArenaBedBreakEvent event) {
         Player player = event.getPlayer();
         if(event.isPlayerCaused() && player != null){
-            new LevelManager(player.getUniqueId()).addXP(bedBreakXP);
+            ArenaExperienceManager.giveArenaXP(player, bedBreakXP);
         }
     }
 

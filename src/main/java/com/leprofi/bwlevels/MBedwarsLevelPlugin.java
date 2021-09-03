@@ -58,6 +58,7 @@ public class MBedwarsLevelPlugin extends JavaPlugin {
         pl.registerEvents(new PlayerEarnAchievementListener(), this);
         pl.registerEvents(new PlayerKillPlayerListener(), this);
         pl.registerEvents(new RoundEndListener(), this);
+        pl.registerEvents(new RoundStartListener(), this);
         pl.registerEvents(new TeamEliminateListener(), this);
 
         new Placeholders().register();

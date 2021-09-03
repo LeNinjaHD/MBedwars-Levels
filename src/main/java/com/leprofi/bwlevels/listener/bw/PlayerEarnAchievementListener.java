@@ -1,7 +1,7 @@
 package com.leprofi.bwlevels.listener.bw;
 
 import com.leprofi.bwlevels.MBedwarsLevelPlugin;
-import com.leprofi.bwlevels.utils.LevelManager;
+import com.leprofi.bwlevels.utils.ArenaExperienceManager;
 import de.marcely.bedwars.api.event.player.PlayerEarnAchievementEvent;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,6 +17,6 @@ public class PlayerEarnAchievementListener implements Listener {
     @EventHandler
     public void onPlayerEarnAchievement(PlayerEarnAchievementEvent event) {
         Player player = event.getPlayer();
-        new LevelManager(player.getUniqueId()).addXP(achievementXP);
+        ArenaExperienceManager.giveArenaXP(player, achievementXP);
     }
 }

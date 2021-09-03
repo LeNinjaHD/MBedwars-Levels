@@ -1,6 +1,7 @@
 package com.leprofi.bwlevels.listener.bw;
 
 import com.leprofi.bwlevels.MBedwarsLevelPlugin;
+import com.leprofi.bwlevels.utils.ArenaExperienceManager;
 import com.leprofi.bwlevels.utils.LevelManager;
 import de.marcely.bedwars.api.BedwarsAPI;
 import de.marcely.bedwars.api.arena.Arena;
@@ -27,9 +28,9 @@ public class PlayerKillPlayerListener implements Listener {
         Team teamOfDeadGuy = arena.getPlayerTeam(deadGuy);
 
         if(arena.isBedDestroyed(teamOfDeadGuy)){
-            new LevelManager(killer.getUniqueId()).addXP(finalKillXP);
+            ArenaExperienceManager.giveArenaXP(killer, finalKillXP);
         }else{
-            new LevelManager(killer.getUniqueId()).addXP(killXP);
+            ArenaExperienceManager.giveArenaXP(killer, killXP);
         }
     }
 }
