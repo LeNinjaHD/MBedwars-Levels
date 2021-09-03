@@ -27,10 +27,10 @@ public class Placeholders extends PlaceholderExpansion {
     @Override
     public String onRequest(OfflinePlayer player, String params) {
         if(params.equalsIgnoreCase("xp")) {
-            new LevelManager(player.getUniqueId()).getXP();
+            return String.valueOf(new LevelManager(player.getUniqueId()).getXP());
         }
         if(params.equalsIgnoreCase("level")) {
-            new LevelManager(player.getUniqueId()).getLevel();
+            return String.valueOf(new LevelManager(player.getUniqueId()).getLevel());
         }
         return null;
     }
