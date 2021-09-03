@@ -1,10 +1,9 @@
 package com.leprofi.bwlevels.utils;
 
+import com.leprofi.bwlevels.MBedwarsLevelPlugin;
 import de.marcely.bedwars.api.player.PlayerDataAPI;
 import de.marcely.bedwars.api.player.PlayerStatSet;
 import de.marcely.bedwars.api.player.PlayerStats;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
@@ -14,13 +13,13 @@ import java.util.UUID;
 public class LevelManager {
 
     private final PlayerStats playerStats;
-    public static PlayerStatSet xpSet;
+    public static PlayerStatSet xpSet = RegisterMBedwarsStat.getXPSet;
 
-    private int gradualIncreaseAmount;
-    private int levelOneXP;
+    private final int gradualIncreaseAmount = plugin().getConfig().getInt("xp-increase-rate");
+    private final int baseXPAmount = plugin().getConfig().getInt("base-xp");
 
-    public LevelManager(String uuid) {
-        playerStats = PlayerDataAPI.get().getStatsNow(UUID.fromString(uuid)).get();
+    public LevelManager(UUID uuid) {
+        playerStats = PlayerDataAPI.get().getStatsNow(uuid).get();
     }
 
     public void addXP(Integer xp) {
@@ -59,10 +58,10 @@ public class LevelManager {
 
              */
 
-            return (int) Math.floor((gradualIncreaseAmount + getXP()) / (levelOneXP + gradualIncreaseAmount));
+            return (int) Math.floor((gradualIncreaseAmount + getXP()) / (baseXPAmount + gradualIncreaseAmount));
         }else{
 
-            return (int) Math.floor(getXP() / levelOneXP);
+            return (int) Math.floor(getXP() / baseXPAmount);
         }
     }
 
@@ -70,10 +69,14 @@ public class LevelManager {
         int nextLevel = currentLevel + 1;
         if(gradualIncreaseAmount <= 0){
             //one level higher xp - current xp
-            return (nextLevel * levelOneXP) - getXP();
+            return (nextLevel * baseXPAmount) - getXP();
         }else {
             //one level higher xp - current xp
-            return ((levelOneXP * nextLevel) + (gradualIncreaseAmount * nextLevel) - gradualIncreaseAmount) - currentXP;
+            return ((baseXPAmount * nextLevel) + (gradualIncreaseAmount * nextLevel) - gradualIncreaseAmount) - currentXP;
         }
+    }
+
+    public static MBedwarsLevelPlugin plugin(){
+        return MBedwarsLevelPlugin.getInstance();
     }
 }

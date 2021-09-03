@@ -10,13 +10,9 @@ import org.bukkit.plugin.Plugin;
 
 import javax.annotation.Nullable;
 
-//TODO this
-
 public class RegisterMBedwarsStat implements PlayerStatSet {
 
-    public static void registerXPSet(){
-        LevelManager.xpSet = new RegisterMBedwarsStat();
-    }
+    public static PlayerStatSet getXPSet;
 
     @Override
     public String getId(){
@@ -46,6 +42,10 @@ public class RegisterMBedwarsStat implements PlayerStatSet {
     @Override
     public void setValue(PlayerStats stats, Number num){
         stats.set("leveladdon:exp", num);
+    }
+
+    public static void registerXPSet(){
+        getXPSet = new RegisterMBedwarsStat();
     }
 
     public static MBedwarsLevelPlugin plugin(){
