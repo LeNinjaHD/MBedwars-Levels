@@ -4,6 +4,7 @@ package com.leprofi.bwlevels.utils;
  *  Class Created by LeNinjaHD at 02.09.2021
  */
 public class Color {
+
     // Reset
     public static final String RESET = "\033[0m";  // Text Reset
 
