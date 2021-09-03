@@ -42,6 +42,8 @@ public class MBedwarsLevelPlugin extends JavaPlugin {
 
         int pluginId = 12681;
         Metrics metrics = new Metrics(this, pluginId);
+
+        new LevelAddon(this).register();
     }
 
     @Override
