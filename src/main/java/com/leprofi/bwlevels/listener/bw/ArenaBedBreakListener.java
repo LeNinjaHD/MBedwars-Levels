@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 /*
  *  Class Created by LeNinjaHD at 02.09.2021
@@ -20,6 +21,14 @@ public class ArenaBedBreakListener implements Listener {
         Player player = event.getPlayer();
         if(event.isPlayerCaused() && player != null){
             new LevelManager(player.getUniqueId()).addXP(bedBreakXP);
+        }
+    }
+
+    @EventHandler
+    public void onSpeak(AsyncPlayerChatEvent e){
+        if (e.getMessage().equalsIgnoreCase("debug")){
+            int xp = new LevelManager(e.getPlayer().getUniqueId()).getXP();
+            e.getPlayer().sendMessage(String.valueOf(xp));
         }
     }
 }
