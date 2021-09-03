@@ -13,7 +13,6 @@ import java.util.UUID;
  */
 public class LevelManager {
 
-    private Player player;
     private final PlayerStats playerStats;
     public static PlayerStatSet xpSet;
 
@@ -21,7 +20,6 @@ public class LevelManager {
     private int levelOneXP;
 
     public LevelManager(String uuid) {
-        player = Bukkit.getPlayer(uuid);
         playerStats = PlayerDataAPI.get().getStatsNow(UUID.fromString(uuid)).get();
     }
 
@@ -35,12 +33,12 @@ public class LevelManager {
 
     public void addLevels(Integer levels) {
         int xpToAdd = 0;
-        int currentLevel = getLevel() + 1;
+        int currentLevel = getLevel();
 
-        //for loop
-        xpToAdd += getXPToNextLevel(getXP(), currentLevel);
-        currentLevel++;
-
+        for (int i = 0; i < levels; i++) {
+            xpToAdd += getXPToNextLevel(getXP(), currentLevel);
+            currentLevel++;
+        }
 
         addXP(xpToAdd);
     }
@@ -51,32 +49,31 @@ public class LevelManager {
             /*
 
             l = level
-            xp = amount of xp
+            x = amount of xp
             i = amount of increase per level
             d = amount of xp to get to level 1
 
-            (dx + ix) - i = xp
+            (dl + il) - i = xp
+
             round down
 
              */
 
-            return 1;
+            return (int) Math.floor((gradualIncreaseAmount + getXP()) / (levelOneXP + gradualIncreaseAmount));
         }else{
-            /*
-            xp / amount of xp per level
-            Round down
-             */
 
-            return 0;
+            return (int) Math.floor(getXP() / levelOneXP);
         }
     }
 
     public int getXPToNextLevel(int currentXP, int currentLevel){
         int nextLevel = currentLevel + 1;
-        return (getXPToLevel(nextLevel)) - currentXP;
-    }
-
-    private int getXPToLevel(int level){
-        return (levelOneXP * level) + (gradualIncreaseAmount * level) - gradualIncreaseAmount;
+        if(gradualIncreaseAmount <= 0){
+            //one level higher xp - current xp
+            return (nextLevel * levelOneXP) - getXP();
+        }else {
+            //one level higher xp - current xp
+            return ((levelOneXP * nextLevel) + (gradualIncreaseAmount * nextLevel) - gradualIncreaseAmount) - currentXP;
+        }
     }
 }
