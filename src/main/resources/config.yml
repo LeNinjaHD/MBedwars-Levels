@@ -3,9 +3,8 @@ base-xp: 5000
 
 #The rate for increasing xp every level
 #Example: if the rate is at 50 & level 1 requires 5000xp Level 2 will require 5050, 5100 and so on
-#Set to 0 or -1 to disable
+#Set to 0 or -1 to disable gradual increase
 xp-increase-rate: 50
-
 
 #This section contains the values for how much xp should be given when completing a goal
 round-end-lose-xp: 500
@@ -17,3 +16,11 @@ kill-xp: 100
 break-bed-xp: 175
 
 achievement-earned-xp: 1250
+
+########## PAPI Placeholders ##########
+
+# {level}
+xp-formatted-placeholder: '&7[{level}✫] '
+
+# {level-xp} {level-xp-required}
+level-progress: '&b{level-xp} &7/ &a{level-xp-required}'

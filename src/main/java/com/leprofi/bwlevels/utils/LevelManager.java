@@ -58,14 +58,32 @@ public class LevelManager {
 
              */
 
-            return (int) Math.floor((gradualIncreaseAmount + getXP()) / (baseXPAmount + gradualIncreaseAmount));
+            return (int) Math.floor((gradualIncreaseAmount + getXP()) / (baseXPAmount + gradualIncreaseAmount)) + 1;
         }else{
-
-            return (int) Math.floor(getXP() / baseXPAmount);
+            return (int) Math.floor(getXP() / baseXPAmount) + 1;
         }
     }
 
-    public int getXPToNextLevel(int currentXP, int currentLevel){
+    public int getXPToNextLevel(){
+        int nextLevel = getLevel() + 1;
+        if(gradualIncreaseAmount <= 0){
+            //one level higher xp - current xp
+            return (nextLevel * baseXPAmount) - getXP();
+        }else {
+            //one level higher xp - current xp
+            return ((baseXPAmount * nextLevel) + (gradualIncreaseAmount * nextLevel) - gradualIncreaseAmount) - getXP();
+        }
+    }
+
+    public int getXPOnCurrentLevel(){
+        return getXP() - getXPToNextLevel(0, getLevel());
+    }
+
+    public int getLevelXPRequired(){
+        return getXPToNextLevel(0, getLevel() + 1) - getXPToNextLevel(0, getLevel());
+    }
+
+    private int getXPToNextLevel(int currentXP, int currentLevel){
         int nextLevel = currentLevel + 1;
         if(gradualIncreaseAmount <= 0){
             //one level higher xp - current xp
@@ -75,6 +93,7 @@ public class LevelManager {
             return ((baseXPAmount * nextLevel) + (gradualIncreaseAmount * nextLevel) - gradualIncreaseAmount) - currentXP;
         }
     }
+
 
     public static MBedwarsLevelPlugin plugin(){
         return MBedwarsLevelPlugin.getInstance();
