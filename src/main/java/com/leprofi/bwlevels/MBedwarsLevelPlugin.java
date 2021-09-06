@@ -49,8 +49,10 @@ public class MBedwarsLevelPlugin extends JavaPlugin {
         Metrics metrics = new Metrics(this, pluginId);
 
         BedwarsAPI.onReady(() -> {
-            //Load papi Placeholders after Registered
             RegisterMBedwarsStat.registerXPSet();
+            RegisterMBedwarsStat.registerLevelSet();
+            //Load papi Placeholders after Registered
+            new Placeholders().register();
         });
 
         PluginManager pl = Bukkit.getPluginManager();
@@ -60,8 +62,6 @@ public class MBedwarsLevelPlugin extends JavaPlugin {
         pl.registerEvents(new RoundEndListener(), this);
         pl.registerEvents(new RoundStartListener(), this);
         pl.registerEvents(new TeamEliminateListener(), this);
-
-        new Placeholders().register();
     }
 
     @Override
